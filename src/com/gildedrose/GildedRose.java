@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.handler.ItemHandlerFactory;
+import com.gildedrose.handler.GildedKernel;
 
 public class GildedRose {
 	Item[] items;
@@ -11,8 +11,8 @@ public class GildedRose {
 
 	public void updateQuality() {
 		for (int i = 0; i < this.items.length; i++) {
-			Item item = this.items[i];
-			ItemHandlerFactory.fetchHandlerFor(item).handleItem(item);
+			GildedKernel kernel = GildedKernel.getInstance();
+			kernel.handleItem(this.items[i]);
 		}
 	}
 }
